@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="stylesheets.css" />
   </head>
   <body>
+<<<<<<< Updated upstream
     <div class="container" onclick="toggleLoginForm()">
       <div class="top"></div>
       <div class="bottom"></div>
@@ -35,6 +36,23 @@
           <p id="user-email"></p>
           <button onclick="signOut()">Sign Out</button>
         </div>
+=======
+    <div class="container">
+      <h1>Welcome</h1>
+      <div class="center">
+        <h2>Please Sign In</h2>
+        <input type="email" id="email" placeholder="Email" />
+        <input type="password" id="password" placeholder="Password" />
+      </div>
+      <div id="user-content" style="display: none">
+        <img id="user-pic" alt="Profile picture" />
+        <p id="user-name"></p>
+        <p id="user-email"></p>
+        <button onclick="signOut()">Sign Out</button>
+      </div>
+      <div id="login-content">
+        <button onclick="signIn()" id="login-btn">Sign in with Google</button>
+>>>>>>> Stashed changes
       </div>
     </div>
 
@@ -67,6 +85,8 @@
           document.getElementById("user-pic").src = user.photoURL;
           document.getElementById("user-name").textContent = user.displayName;
           document.getElementById("user-email").textContent = user.email;
+          document.getElementById("email").style.display = "none";
+          document.getElementById("password").style.display = "none";
         } else {
           // User is signed out
           document.getElementById("user-content").style.display = "none";
