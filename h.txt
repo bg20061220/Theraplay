@@ -1,0 +1,2 @@
+Domain : dev-p1qjskc5wgh8krgp.us.auth0.com
+Client Id : GBY8zvYvBaynCcTbtz9F3I6lDMInRMgm 

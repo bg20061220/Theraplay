@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Auth Demo</title>
+    <link rel="stylesheet" href="stylesheets.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome</h1>
+      <div id="user-content" style="display: none">
+        <img id="user-pic" alt="Profile picture" />
+        <p id="user-name"></p>
+        <p id="user-email"></p>
+        <button onclick="signOut()">Sign Out</button>
+      </div>
+      <div id="login-content">
+        <button onclick="signIn()" id="login-btn">Sign in with Google</button>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script>
+      // Your Firebase config
+      const firebaseConfig = {
+        apiKey: "AIzaSyBmPhTISj7AWQYJghPzrSYcKW7SvF1AxLQ",
+        authDomain: "university-interview-simulator.firebaseapp.com",
+        projectId: "university-interview-simulator",
+        storageBucket: "university-interview-simulator.firebasestorage.app",
+        messagingSenderId: "783489524635",
+        appId: "1:783489524635:web:25c8ba55626cc8296af73e",
+        measurementId: "G-S3WWD69934",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Google Auth Provider
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      // Auth state observer
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in
+          document.getElementById("user-content").style.display = "block";
+          document.getElementById("login-content").style.display = "none";
+          document.getElementById("user-pic").src = user.photoURL;
+          document.getElementById("user-name").textContent = user.displayName;
+          document.getElementById("user-email").textContent = user.email;
+        } else {
+          // User is signed out
+          document.getElementById("user-content").style.display = "none";
+          document.getElementById("login-content").style.display = "block";
+        }
+      });
+
+      // Sign in function
+      function signIn() {
+        firebase
+          .auth()
+          .signInWithPopup(provider)
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Error signing in");
+          });
+      }
+
+      // Sign out function
+      function signOut() {
+        firebase
+          .auth()
+          .signOut()
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Error signing out");
+          });
+      }
+    </script>
+  </body>
+</html>
