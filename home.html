@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="stylesheets.css" />
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to TheraPlay</h1>
+      <p id="welcome-message"></p>
+      <button id="sign-out-btn">Sign Out</button>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script>
+      // Firebase Config (same as index.html)
+      const firebaseConfig = {
+        apiKey: "AIzaSyBmPhTISj7AWQYJghPzrSYcKW7SvF1AxLQ",
+        authDomain: "university-interview-simulator.firebaseapp.com",
+        projectId: "university-interview-simulator",
+        storageBucket: "university-interview-simulator.firebasestorage.app",
+        messagingSenderId: "783489524635",
+        appId: "1:783489524635:web:25c8ba55626cc8296af73e",
+        measurementId: "G-S3WWD69934",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Populate welcome message
+      const userName = localStorage.getItem("userName");
+      const welcomeMessage = document.getElementById("welcome-message");
+      if (userName) {
+        welcomeMessage.textContent = `Hello, ${userName}!`;
+      } else {
+        welcomeMessage.textContent = "Welcome!";
+      }
+
+      // Sign-out button functionality
+      const signOutBtn = document.getElementById("sign-out-btn");
+      signOutBtn.addEventListener("click", () => {
+        firebase
+          .auth()
+          .signOut()
+          .then(() => {
+            window.location.href = "index.html"; // Redirect to login page
+          })
+          .catch((error) => {
+            console.error("Sign-out error:", error);
+            alert("Error signing out. Please try again.");
+          });
+      });
+    </script>
+  </body>
+</html>
