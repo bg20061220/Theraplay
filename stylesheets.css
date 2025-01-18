@@ -1,9 +1,7 @@
-body {
-    font-family: "Dosis", serif;
-}
 .container {
-    padding: 10px;
-    font-size: 24px;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
     text-align: center;
     background-color: white;
     border-radius: 8px;
@@ -18,7 +16,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 button:hover {
@@ -29,7 +27,7 @@ button:hover {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin: 10px auto;
+    margin: 20px auto;
 }
 
 #user-name {
@@ -39,133 +37,5 @@ button:hover {
 
 #user-email {
     color: #666;
-    margin-bottom: 10px;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-body {
-  min-height: 100vh;
-  font-family: "Dosis", serif;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container:hover, .container:active {
-  .top, .bottom {
-    &:before, &:after {
-      margin-left: 200px;
-      transform-origin: -200px 50%;
-      transition-delay: 0s;
-    }
-  }
-
-  .center {
-    opacity: 1;
-    transition-delay: 0.2s;
-  }
-}
-
-.top, .bottom {
-  position: absolute;
-  &:before, &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 200vmax;
-    height: 200vmax;
-    top: 50%;
-    left: 50%;
-    margin-top: -100vmax;
-    transform-origin: 0 50%;
-    transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
-    z-index: 10;
-    opacity: 0.65;
-    transition-delay: 0.2s;
-  }
-}
-
-.top {
-  &:before {
-    transform: rotate(45deg);
-    background: #DDB892;
-  }
-  &:after {
-    transform: rotate(135deg);
-    background: #B08968;
-  }
-}
-
-.bottom {
-  &:before {
-    transform: rotate(-45deg);
-    background: #EDE0D4;
-  }
-  &:after {
-    transform: rotate(-135deg);
-    background: #B08968;
-  }
-}
-
-.center {
-  position: absolute;
-  width: 100%;  /* Full width of the screen */
-  max-width: 400px; /* Optionally restrict max width for better layout control */
-  height: auto;  /* Adjust height based on content */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  opacity: 0;
-  transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
-  transition-delay: 0s;
-  color: #333;
-  
-  /* Form inputs styling */
-  input {
-    width: 100%;
-    padding: 15px;
-    margin: 5px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    font-family: inherit;
-  }
-
-  button {
-    width: 100%;
-    padding: 15px;
-    margin-top: 5px;
-    border-radius: 20px;
-    background-color: #B08968;
-    color: white;
-    border: none;
-    font-family: "Dosis", serif;
-    font-weight: 500;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    z-index: 100;
-  }
-
-  button:hover {
-    background-color: #7F5539;
-  }
+    margin-bottom: 20px;
 }
