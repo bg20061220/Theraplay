@@ -5,57 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Google Auth Demo</title>
     <link rel="stylesheet" href="stylesheets.css" />
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-<<<<<<< Updated upstream
     <div class="container" onclick="toggleLoginForm()">
       <div class="top"></div>
       <div class="bottom"></div>
       <div class="center">
         <h2>TheraPlay</h2>
-        
-        <!-- Email/Password Login Form -->
+
+        Email/Password Login Form
         <div id="email-form">
           <input type="email" id="email" placeholder="email" />
           <input type="password" id="password" placeholder="password" />
-          <button onclick="handleLogin()">Log In</button>
+          <button id="LogIn" onclick="handleLogin()">Log In</button>
         </div>
-    
-        <h2 class="or">&nbsp; or &nbsp;</h2>
-    
-        <!-- Google Sign In -->
+
+        <h2 id="or" class="or">&nbsp; or &nbsp;</h2>
+
+        <!--Google Sign Up Button -->
         <div id="login-content">
-          <button onclick="signIn()" id="google-signin-btn">Sign in with Google</button>
+          <button onclick="signIn()" id="google-signin-btn">
+            Sign in with Google
+          </button>
         </div>
-        
-        <!-- User Info after successful sign-in -->
+
+        <!--Userinfo after sign in-->
         <div id="user-content" style="display: none">
-          <h1>Welcome</h1>
+          <h1 id="Welcome">Welcome</h1>
           <img id="user-pic" alt="Profile picture" />
           <p id="user-name"></p>
           <p id="user-email"></p>
           <button onclick="signOut()">Sign Out</button>
         </div>
-=======
-    <div class="container">
-      <h1>Welcome</h1>
-      <div class="center">
-        <h2>Please Sign In</h2>
-        <input type="email" id="email" placeholder="Email" />
-        <input type="password" id="password" placeholder="Password" />
-      </div>
-      <div id="user-content" style="display: none">
-        <img id="user-pic" alt="Profile picture" />
-        <p id="user-name"></p>
-        <p id="user-email"></p>
-        <button onclick="signOut()">Sign Out</button>
-      </div>
-      <div id="login-content">
-        <button onclick="signIn()" id="login-btn">Sign in with Google</button>
->>>>>>> Stashed changes
       </div>
     </div>
 
+    ]
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
     <script>
@@ -80,6 +68,7 @@
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           // User is signed in
+          localStorage.setItem("userName", user.displayName);
           document.getElementById("user-content").style.display = "block";
           document.getElementById("login-content").style.display = "none";
           document.getElementById("user-pic").src = user.photoURL;
@@ -87,10 +76,19 @@
           document.getElementById("user-email").textContent = user.email;
           document.getElementById("email").style.display = "none";
           document.getElementById("password").style.display = "none";
+          document.getElementById("or").style.display = "none";
+          document.getElementById("Welcome").style.display = "none";
+          document.getElementById("LogIn").style.display = "none";
+          window.location.href = "profile.html";
         } else {
           // User is signed out
           document.getElementById("user-content").style.display = "none";
           document.getElementById("login-content").style.display = "block";
+          document.getElementById("email").style.display = "block";
+          document.getElementById("password").style.display = "block";
+          document.getElementById("or").style.display = "block";
+          document.getElementById("Welcome").style.display = "block";
+          document.getElementById("LogIn").style.display = "none";
         }
       });
 
@@ -116,5 +114,6 @@
           });
       }
     </script>
+    <!-- <script src="script.js"></script> -->
   </body>
 </html>

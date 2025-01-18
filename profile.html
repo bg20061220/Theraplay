@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="profile-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="stylesheets.css" />
+  </head>
+  <body>
+    <div class="mainBox">
+      <h1 id="welcome-message">Welcome</h1>
+      <h3>Select What Worries you</h3>
+
+      <!-- Profile Section -->
+      <div class="profile">
+        <label for="tag-input">Enter Tags (e.g., #anxiety)</label>
+        <div class="input-container">
+          <input
+            type="text"
+            id="tag-input"
+            placeholder="Type a tag and press Enter"
+            id="tag-input"
+          />
+          <button id="add-tag-button">+</button>
+        </div>
+        <select id="tag-suggestions" name="tags">
+          <option value="anxiety">Anxiety</option>
+          <option value="depression">Depression</option>
+          <option value="stress">Stress</option>
+          <option value="trauma">Trauma</option>
+          <option value="relationship">Relationship</option>
+          <option value="family">Family</option>
+          <option value="career">Career</option>
+          <option value="school">School</option>
+          <option value="self-esteem">Self-Esteem</option>
+          <option value="grief">Grief</option>
+          <option value="addiction">Addiction</option>
+          <option value="eating-disorder">Eating Disorder</option>
+          <option value="abuse">Abuse</option>
+          <option value="anger">Anger</option>
+          <option value="loneliness">Loneliness</option>
+          <option value="parenting">Parenting</option>
+          <option value="divorce">Divorce</option>
+        </select>
+        <h3 id="no-tag-message" style="display: none">Make Your Own Tag</h3>
+        <!-- Displaying Tags -->
+        <div id="tag-list">
+          <!-- Tags will appear here -->
+        </div>
+
+        <!-- Find a Match Button -->
+        <button id="find-match-button" disabled>Find a Match</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
