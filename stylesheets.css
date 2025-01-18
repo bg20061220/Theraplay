@@ -3,8 +3,25 @@ body {
 }
 h2 {
   font-family: "Dosis", serif;
+}
+#welcome-message {
+  font-family: "Dosis", serif;
+}
+.random {
+  display: inline;
+  padding:10px;
+  vertical-align: middle;
+  z-index:5;
 
 }
+
+.bgr-img {
+  background-image:url("assets/img.png");
+  background-size: cover;  /* To make the image cover the whole page */
+  background-position: center; /* To center the image */
+  background-repeat: no-repeat; /* To prevent repeating the image */
+}
+
 .logo {
   width:250px;
 }
@@ -158,10 +175,10 @@ body {
   button:hover {
     background-color: #7F5539;
   }
-}
+
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Dosis", serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,7 +189,7 @@ body {
 
 /* Common Styles for Profile Page */
 .profile-page body {
-    font-family: Arial, sans-serif;
+    font-family: "Dosis", serif;
     background-color: #f4f4f9;
     display: flex;
     justify-content: center;
@@ -185,8 +202,8 @@ body {
     background-color: white;
     border-radius: 8px;
     padding: 30px;
-    width: 400px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
   }
   
