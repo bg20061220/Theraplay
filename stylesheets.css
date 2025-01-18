@@ -3,9 +3,12 @@ body {
 }
 h2 {
   font-family: "Dosis", serif;
+  margin-bottom: 0px;
 }
 #welcome-message {
   font-family: "Dosis", serif;
+  text-align: left;
+  margin-left: 20px;
 }
 .random {
   display: inline;
@@ -14,7 +17,37 @@ h2 {
   z-index:5;
 
 }
-
+#bio {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 10px;
+  margin-left: 15px;
+  width: 420px;
+  height: 200px;
+  padding-top: 15px;
+  padding-left: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 18px;  
+}
+.ques {
+  text-align: left;
+  padding-left: 20px;
+}
+#tag-suggestions {
+  width: 100%;
+    width: 420px;
+    height:40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 16px;  
+}
 .bgr-img {
   background-image:url("assets/img.png");
   background-size: cover;  /* To make the image cover the whole page */
@@ -200,7 +233,7 @@ body {
   
   .mainBox {
     background-color: white;
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 30px;
     width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -218,26 +251,30 @@ body {
   }
   
   #tag-input {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
+    width: 100%;
+    width: 380px;
+    height:40px;
+    padding: 10px; 
+    margin: 10px;
+    border-radius: 20px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    flex-grow: 1;
+    font-family: inherit;
+    font-size: 18px; 
   }
   
   .input-container {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
   }
   
   #add-tag-button {
+    width: 40px;
+    margin-top:0px;
     background-color: #4CAF50;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 18px;
   }
@@ -263,14 +300,14 @@ body {
   }
   
   #find-match-button {
+    width:420px;
     background-color: #B08968;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 20px;
   }
   
   #find-match-button:hover {
