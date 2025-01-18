@@ -20,7 +20,7 @@ button {
 button:hover {
     background-color: #357abd;
 }
-
+ 
 #user-pic {
     width: 100px;
     height: 100px;
@@ -28,18 +28,14 @@ button:hover {
     margin: 20px auto;
 }
 
-#user-name {
-    font-size: 24px;
-    margin: 10px 0;
-}
 
 #user-email {
     color: #666;
+    margin-bottom: 20px;
+
     margin-bottom: 10px;
 }
-.or {
-    margin:5px
-}
+
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
 *, *:before, *:after {
