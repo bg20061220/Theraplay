@@ -154,6 +154,9 @@ const tagSuggestions = document.getElementById("tag-suggestions");
 const tagList = document.getElementById("tag-list");
 const findMatchButton = document.getElementById("find-match-button");
 const heading = document.getElementById("no-tag-message");
+findMatchButton.onclick = function () {
+  window.location.href = "home.html";
+};
 // Enable "Find a Match" button if at least one tag exists
 function enableFindMatchButton() {
   findMatchButton.disabled = addedTags.size === 0;
