@@ -281,5 +281,115 @@ body {
     background-color: #ccc;
     cursor: not-allowed;
   }
+  /* Styles for home page */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixes the header to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures the header stays above other elements */
+  }
   
+  .header-logo {
+    height: 60px;
+    width: auto;
+  }
   
+  .header-buttons {
+    display: flex;
+    gap: 130px; /* Space between buttons */
+    margin-left: auto; /* Push buttons to the right */
+  }
+  
+  .header-nav-button {
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .header-nav-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .header-nav-button:active {
+    background-color: #003f7f;
+  }
+  
+  .slider-container {
+    width: 1200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    position: relative;
+}
+
+.slide {
+    min-width: 400px;
+    height: 400px;
+    margin: 0 10px;
+    position: relative;
+    transform: scale(0.8);
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.slide.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.custom-cursor {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    transition: transform 0.1s ease;
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+.custom-cursor.left::before {
+    content: "←";
+}
+
+.custom-cursor.right::before {
+    content: "→";
+}
+
+.custom-cursor.active {
+    transform: scale(1.5);
+}
