@@ -4,19 +4,19 @@
     "routes": [
       {
         "src": "/home",       
-        "dest": "public/home.html"
+        "dest": "/public/home.html"
       },
       {
         "src": "/main",        
-        "dest": "public/main.html"
+        "dest": "/public/main.html"
       },
       {
         "src": "/profile",     
-        "dest": "public/profile.html"
+        "dest": "/public/profile.html"
       },
       {
         "src": "/",          
-        "dest": "public/main.html"    
+        "dest": "/public/main.html"    
       }
     ],
     "builds": [
