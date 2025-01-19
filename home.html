@@ -31,7 +31,7 @@
         <div class="slider"></div>
       </div>
     
-
+        <a id="match" href="./public/index.html"><button>Match</button></a>
 
     <!-- Sign Out Script DO NOT TOUCH VERY FRAGILE-->
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
@@ -58,7 +58,7 @@
           .auth()
           .signOut()
           .then(() => {
-            window.location.href = "index.html"; // Redirect to login page
+            window.location.href = "main.html"; // Redirect to login page
           })
           .catch((error) => {
             console.error("Sign-out error:", error);
@@ -237,6 +237,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         new Slider();
       });
+    
     </script>
   </body>
 </html>
