@@ -17,7 +17,7 @@
         <button id="sign-out-btn" class="header-nav-button">Sign Out</button>
       </div>
     </div>
-
+    <h2 id = "playerName"></h2>
     <!-- Main Section -->
     <div class="main-section">
       <div class="custom-cursor"></div>
@@ -33,6 +33,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
     <script>
+    
       // Firebase Config (same as index.html)
       const firebaseConfig = {
         apiKey: "AIzaSyBmPhTISj7AWQYJghPzrSYcKW7SvF1AxLQ",
@@ -59,6 +60,9 @@
             console.error("Sign-out error:", error);
             alert("Error signing out. Please try again.");
           });
+          localStorage.removeItem("profileName") ; 
+          localStorage.removeItem("bio-info");
+          sessionStorage.removeItem("tags") ; 
       });
       const profileBtn = document.getElementById("Profile");
       profileBtn.addEventListener("click", () => {
