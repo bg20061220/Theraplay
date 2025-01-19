@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "public": "public",       
+    "routes": [
+      {
+        "src": "/Home",       
+        "dest": "public/home.html"
+      },
+      {
+        "src": "/Main",        
+        "dest": "public/Main.html"
+      },
+      {
+        "src": "/Profile",     
+        "dest": "public/profile.html"
+      },
+      {
+        "src": "/",          
+        "dest": "public/main.html"    
+      }
+    ],
+    "builds": [
+      {
+        "src": "index.js",      
+        "use": "@vercel/node"   
+      }
+    ],
+    "ignore": [
+      "node_modules",          
+      "Env",                   
+      "package-lock.json"
+    ]
+  }

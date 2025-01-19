@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
-    <link rel="stylesheet" href="stylesheets.css" />
+    <link rel="stylesheet" href="/public/stylesheets.css" />
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
   </head>
@@ -82,7 +82,7 @@
           .auth()
           .signOut()
           .then(() => {
-            window.location.href = "main.html"; // Redirect to login page
+            window.location.href = "/public/main.html"; // Redirect to login page
           })
           .catch((error) => {
             console.error("Sign-out error:", error);

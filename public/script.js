@@ -69,7 +69,7 @@ findMatchButton.onclick = function () {
   localStorage.setItem("profileName", profileNameValue);
   localStorage.setItem("bio-info", bioValue);
 
-  window.location.href = "home.html";
+  window.location.href = "/public/home.html";
 };
 // Enable "Find a Match" button if at least one tag exists
 function enableFindMatchButton() {
@@ -170,7 +170,7 @@ function addTags(tagValue) {
   tagDiv.classList.add("tag");
   tagDiv.textContent = `#${tagValue}`;
   // Add remove button
-  
+
   // Append the tag and update the Set
   tagList.appendChild(tagDiv);
   addedTags.add(tagValue);
