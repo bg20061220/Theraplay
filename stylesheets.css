@@ -394,6 +394,7 @@ body {
 
 .card:hover {
   transform: scale(1.15); /* Enlarge the card */
+  opacity: 1;
   box-shadow: rgba(50, 50, 93, 0.3) 0px 50px 100px -20px, rgba(0, 0, 0, 0.4) 0px 30px 60px -30px, rgba(10, 37, 64, 0.4) 0px -2px 6px 0px inset; /* Enhanced shadow on hover */
 }
 
@@ -417,4 +418,9 @@ body {
   text-align: justify;
   color: #3f3f3f;
   text-align: top;
+}
+.match {
+  display: flex;
+  align-items: center;
+
 }
