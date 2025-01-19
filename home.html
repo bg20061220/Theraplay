@@ -60,7 +60,10 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
     <script>
-    
+    window.addEventListener("beforeunload", function (event) {
+  localStorage.removeItem("profileName");
+  localStorage.removeItem("bio-info");
+});
       // Firebase Config (same as index.html)
       const firebaseConfig = {
         apiKey: "AIzaSyBmPhTISj7AWQYJghPzrSYcKW7SvF1AxLQ",
