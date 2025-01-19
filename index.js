@@ -89,7 +89,7 @@ const users = new Set();
 const chatHistory = [];
 
 app.use(express.static("public"));
-
+let ttsEnabled = false;
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
   users.add(socket.id);
@@ -97,10 +97,16 @@ io.on("connection", (socket) => {
   if (!currentDrawer) {
     startNewTurn(socket.id);
   }
+  
+  socket.on('toggle-tts', (enabled) => {
+    ttsEnabled = enabled;
+    console.log('Text-to-speech ' + (ttsEnabled ? 'enabled' : 'disabled'));
+  });
 
   socket.on("chat message", async (message) => {
     socket.broadcast.emit("chat message", message);
     chatHistory.push(message);
+    if (ttsEnabled) {
     try {
       const audioResponse = await voice.textToSpeechStream({
         textInput: message,
@@ -121,6 +127,7 @@ io.on("connection", (socket) => {
     } catch (error) {
       console.error("Error generating speech:", error);
     }
+  }
   });
 
   socket.on("canvas-update", (data) => {

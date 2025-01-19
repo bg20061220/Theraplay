@@ -56,6 +56,13 @@
         margin: 0 0;
       }
 
+      .live {
+        padding: 10px;
+        margin: 10px;     
+      }
+      .live div {
+        margin: 10px;
+      }
       .chat-section {
         flex: 1;
         display: flex;
@@ -68,6 +75,12 @@
         height: 90vh;
       }
 
+      #messageArea {
+        background-image: url("../assets/chatbgr.jpeg");
+        background-size: cover;  /* Ensures the image covers the whole area */
+        background-position: center;  /* Centers the image */
+        background-repeat: no-repeat;  /* Prevents the image from repeating */
+      }
       .messages {
         flex: 1;
         border: 1px solid #ccc;
@@ -93,7 +106,7 @@
       }
 
       .canvas-section {
-        width:90%;
+        width:100%;
         height: 100%;
         background: white;
         border-radius: 10px;
@@ -141,7 +154,7 @@
 
       .tool-active {
         background-color: #DDB892;
-        border: 2px solid #003580;
+        border: 2px solid black;
       }
 
       input[type="text"] {
@@ -164,7 +177,7 @@
       
       .timer  {
         font-family: 'Arial', sans-serif;
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 300;
         color: #5D4037;
         background-color: rgba(215, 204, 200, 0.7);
@@ -172,10 +185,11 @@
         border-radius: 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
+        text-align: center;
       }
       .turn {
         font-family: 'Arial', sans-serif;
-        font-size: 20px;
+        font-size: 14px;
         font-weight: 300;
         color: #5D4037;
         background-color: rgba(215, 204, 200, 0.7);
@@ -183,6 +197,7 @@
         border-radius: 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
+        text-align: center;
       }
       
       .theme-display {
@@ -377,14 +392,17 @@
       <div class="loading-spinner"></div>
     </div>
   
-                <div class="app-container">
-      
+    <div class="app-container">
+      <div class="live">
+        <div id="timer" class="timer"></div>
+        <div id="turn" class="turn"></div>
+      </div>
+
       <div class="canvas-section">
         <canvas id="canvas"></canvas>
         <div class="timer-theme-container">
-          <div id="timer" class="timer"></div>
+          
           <div id="theme-display" class="theme-display"></div>
-          <div id="turn" class="turn"></div>
         </div>
         <div class="controls">
           <div class="control-group">
@@ -425,9 +443,10 @@
             placeholder="Type your message..."
           />
           <button id="sendButton">Send</button>
-          <button id="voiceButton">🎤</button>
-          <button id="endChatButton">End Chat</button>  
-          <div class="love">
+          <button id="voiceButton">Speak</button>
+          <button id="hearButton">Hear</button> 
+          <button id="endChatButton">End Chat</button> 
+          <div class="love" style="visibility: hidden;">
             <input id="switch" type="checkbox" />
             <label class="love-heart" for="switch">
               <i class="left"></i>
@@ -494,13 +513,13 @@ window.onload = showLoading;
         const themeDisplay = document.getElementById("theme-display");
         themeDisplay.textContent = `Theme: ${theme}`;
       });
-      const ttsToggle = document.getElementById('switch');
+      const ttsToggle = document.getElementById('hearButton');
 let ttsEnabled = false;
-ttsToggle.addEventListener('change', function() {
+ttsToggle.onclick = function() {
   ttsEnabled = this.checked;
   socket.emit('toggle-tts', ttsEnabled);
   console.log('Text-to-speech ' + (ttsEnabled ? 'enabled' : 'disabled'));
-});
+};
       
 function startNewTurn(userId) {
   if (currentDrawer) {
@@ -593,6 +612,7 @@ function startNewTurn(userId) {
       const lineWidth = document.getElementById("drawing-line-width");
       const lineWidthDisplay = document.getElementById("line-width-display");
       const timer = document.getElementById("timer");
+    
 
       let isRecording = false;
       let recognition;
