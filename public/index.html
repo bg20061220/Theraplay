@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
     <style>
-      .loading-container {
+      /* .loading-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,16 +18,21 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-}
+} */
 
 /* Simple spinner animation */
 .loading-spinner {
+  position: fixed; /* Sticks to the viewport */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
   border: 8px solid #f3f3f3;
   border-top: 8px solid #3498db;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  animation: spin 40s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 /* Keyframe for spinning animation */
@@ -37,14 +42,10 @@
 }
 
 /* Hide content initially */
-.hidden {
-  display: none;
-}
+
 
 /* Show content after loading */
-.show {
-  display: block;
-}
+
       body, .app-container {
         padding: 0;
         margin: 0;
@@ -368,8 +369,8 @@
     <div id="loading-container" class="loading-container">
       <div class="loading-spinner"></div>
     </div>
-    <div id="content" class = "hidden">
-          <div class="app-container">
+  
+                <div class="app-container">
       
       <div class="canvas-section">
         <canvas id="canvas"></canvas>
@@ -432,7 +433,7 @@
         
         </div>
       </div>
-           <div id="summaryPopup" class="popup">
+                 <div id="summaryPopup" class="popup">
         <div class="popup-content">
           <span class="close">&times;</span>
           <h2>Chat Summary</h2>
@@ -440,14 +441,14 @@
           <a href="../home.html"><button>Home</button></a>
         </div>
       </div>
-          <div id="aiAssistModal" class="modal">
+                 <div id="aiAssistModal" class="modal">
         <div class="modal-content">
           <h2>Would you like AI assistance?</h2>
           <button id="aiAssistYes">Yes</button>
           <button id="aiAssistNo">No</button>
         </div>
       </div>
-          <div id="aiAssistModal" class="modal">
+                   <div id="aiAssistModal" class="modal">
         <div class="modal-content">
           <h2>Would you like AI assistance?</h2>
           <button id="aiAssistYes">Yes</button>
@@ -456,9 +457,9 @@
       </div>
     </div>
   </div>
+
     <script>
-      // Function to simulate loading and hide the spinner after a fixed time
-function showLoading() {
+      function showLoading() {
   const loadingContainer = document.getElementById('loading-container');
   const content = document.getElementById('content');
   
@@ -477,7 +478,6 @@ function showLoading() {
 
 // Call the function when the page loads
 window.onload = showLoading;
-
       const socket = io("http://localhost:3000");
       let canvas;
       let isMyTurn = false;
