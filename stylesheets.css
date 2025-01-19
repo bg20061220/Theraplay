@@ -268,15 +268,16 @@ body {
   }
   
   #add-tag-button {
-    width: 40px;
+    width: 35px;
     margin-top:0px;
     background-color: #4CAF50;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
+    margin-left: 5px;
   }
   
   #add-tag-button:hover {
@@ -300,7 +301,7 @@ body {
   }
   
   #find-match-button {
-    width:420px;
+    width:100%;
     background-color: #B08968;
     color: white;
     padding: 10px;
@@ -308,6 +309,7 @@ body {
     border-radius: 20px;
     cursor: pointer;
     font-size: 18px;
+    margin-top: 20px;
   }
   
   #find-match-button:hover {
