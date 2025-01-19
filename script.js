@@ -27,6 +27,10 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("bio").textContent = bio;
   }
 });
+window.addEventListener("beforeunload", function (event) {
+  localStorage.removeItem("profileName");
+  localStorage.removeItem("bio-info");
+});
 
 const addedTags = new Set(); // Use Set to prevent duplicates
 
@@ -170,7 +174,7 @@ function addTags(tagValue) {
   tagDiv.classList.add("tag");
   tagDiv.textContent = `#${tagValue}`;
   // Add remove button
-  
+
   // Append the tag and update the Set
   tagList.appendChild(tagDiv);
   addedTags.add(tagValue);

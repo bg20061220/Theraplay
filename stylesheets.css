@@ -474,3 +474,8 @@ body {
   font-size: 1rem;
   color: #666;
 }
+
+.match-container {
+  display: block;
+  margin-top: 20px; /* Optional: adds spacing between the carousel and the button */
+}

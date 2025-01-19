@@ -1,0 +1,28 @@
+{
+    "version": 2,
+    "public": "public",       
+    "routes": [
+      {
+        "src": "/home",       
+        "dest": "public/home.html"
+      },
+      {
+        "src": "/main",        
+        "dest": "public/main.html"
+      },
+      {
+        "src": "/profile",     
+        "dest": "public/profile.html"
+      },
+      {
+        "src": "/",          
+        "dest": "public/main.html"    
+      }
+    ],
+    "builds": [
+      {
+        "src": "index.js",      
+        "use": "@vercel/node"   
+      }
+    ]
+  }
