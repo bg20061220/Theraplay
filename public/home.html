@@ -82,7 +82,7 @@
           .auth()
           .signOut()
           .then(() => {
-            window.location.href = "/public/main.html"; // Redirect to login page
+            window.location.href = "./public/main.html"; // Redirect to login page
           })
           .catch((error) => {
             console.error("Sign-out error:", error);
@@ -94,7 +94,7 @@
       });
       const profileBtn = document.getElementById("Profile");
       profileBtn.addEventListener("click", () => {
-        window.location.href = "profile.html";
+        window.location.href = "./public/profile.html";
       });
       const carousel = document.querySelector('.carousel');
 const cards = document.querySelectorAll('.carousel-card');
