@@ -115,12 +115,6 @@ function addTag() {
   const tagDiv = document.createElement("div");
   tagDiv.classList.add("tag");
   tagDiv.textContent = `#${tagValue}`;
-  // Add remove button
-  const removeButton = document.createElement("button");
-  removeButton.classList.add("remove-button");
-  removeButton.textContent = "×";
-  removeButton.onclick = () => removeTag(tagValue, tagDiv);
-  tagDiv.appendChild(removeButton);
 
   // Append the tag and update the Set
   tagList.appendChild(tagDiv);
@@ -176,12 +170,7 @@ function addTags(tagValue) {
   tagDiv.classList.add("tag");
   tagDiv.textContent = `#${tagValue}`;
   // Add remove button
-  const removeButton = document.createElement("button");
-  removeButton.classList.add("remove-button");
-  removeButton.textContent = "×";
-  removeButton.onclick = () => removeTag(tagValue, tagDiv);
-  tagDiv.appendChild(removeButton);
-
+  
   // Append the tag and update the Set
   tagList.appendChild(tagDiv);
   addedTags.add(tagValue);

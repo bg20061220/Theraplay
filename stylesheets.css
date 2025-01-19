@@ -230,7 +230,7 @@ body {
     height: 100vh;
     margin: 0;
   }
-  
+
   .mainBox {
     background-color: white;
     border-radius: 20px;
@@ -280,7 +280,7 @@ body {
   }
   
   #add-tag-button:hover {
-    background-color: #45a049;
+    background-color: #2a632d;
   }
   
   #tag-list {
@@ -289,16 +289,28 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
   .tag {
-    background-color: #ddd;
-    color: #333;
-    padding: 8px;
-    border-radius: 12px;
+    background-color: #e0e0e0; /* Slightly lighter gray for better contrast */
+    color: #333; /* Dark text for readability */
+    padding: 6px 12px; /* Adjusted padding for better balance */
+    border-radius: 18px; /* Slightly more rounded for a modern look */
     margin: 5px;
     font-size: 14px;
+    font-weight: 600; /* Slightly bold for emphasis */
+    display: inline-block; /* Makes sure it behaves like a tag */
+    text-align: center; /* Center the text inside */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s, transform 0.2s ease; /* Smooth transitions */
+    position: relative; /* Ensures the button is positioned inside the tag */
+    display: flex;
+    justify-content: center;   
+    align-items: center;
   }
-  
+  .remove-button {
+    width:15px;
+    height:15px;
+  }
+
   #find-match-button {
     width:420px;
     background-color: #B08968;
@@ -359,83 +371,22 @@ body {
     background-color: #7F5539;
     transform: scale(1.05);
   }
-  
-  .header-nav-button:active {
-    background-color: #7F5539;
-  }
-  
-  .slider-container {
-    width: 1200px;
-    position: relative;
-    overflow: hidden;
-}
 
-.slider {
-    display: flex;
-    position: relative;
+#match {
+  width:320px; 
 }
-
-.slide {
-    min-width: 400px;
-    height: 400px;
-    margin: 0 10px;
-    position: relative;
-    transform: scale(0.8);
-    opacity: 0.6;
-    transition: all 0.3s ease-in-out;
-    border-radius: 10px;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.slide.active {
-    transform: scale(1);
-    opacity: 1;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.custom-cursor {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid white;
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 20px;
-    opacity: 0;
-    transition: transform 0.1s ease;
-    backdrop-filter: blur(4px);
-    z-index: 1000;
-}
-
-.custom-cursor.left::before {
-    content: "←";
-}
-
-.custom-cursor.right::before {
-    content: "→";
-}
-
-.custom-cursor.active {
-    transform: scale(1.5);
+.match {
+  display: flex;
+  justify-content: center;
 }
 .card {
-  width: 400px;
+  width: 320px;
   height: 100%; /* Adjust this if you want the height of the card to be dynamic or fixed */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: #fff;
+  margin-bottom:20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(5, 5, 5, 0.4);
   overflow: hidden; /* Prevents overflow of content */
