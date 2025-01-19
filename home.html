@@ -24,13 +24,34 @@
     </div>
     <h2 id = "playerName"></h2>
     <!-- Main Section -->
-    <div class="main-section">
-      <div class="custom-cursor"></div>
-      <div class="slider-container">
-        <div class="slider"></div>
-      </div>
-    
-        <a id="match" href="./public/index.html"><button>Match</button></a>
+    <div class="carousel-wrapper">
+      <div class="carousel-container">
+          <div class="carousel">
+              <div class="carousel-card">
+                  <img src="assets/Character2.png" alt="Image 1">
+                  <p>Card 1</p>
+              </div>
+              <div class="carousel-card">
+                  <img src="assets/Character3.png" alt="Image 2">
+                  <p>Card 2</p>
+              </div>
+              <div class="carousel-card">
+                  <img src="assets/Character4.png" alt="Image 3">
+                  <p>Card 3</p>
+              </div>
+              <div class="carousel-card">
+                  <img src="assets/Character5.png" alt="Image 4">
+                  <p>Card 4</p>
+              </div>
+          </div>
+         
+        </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="carousel-arrow left-arrow">&lt;</button>
+    <button class="carousel-arrow right-arrow">&gt;</button>
+</div> 
+        <!-- <a id="match" href="./public/index.html"><button>Match</button></a> -->
 
     <!-- Sign Out Script DO NOT TOUCH VERY FRAGILE-->
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
@@ -71,171 +92,32 @@
       profileBtn.addEventListener("click", () => {
         window.location.href = "profile.html";
       });
-      class Slider {
-        constructor() {
-          this.container = document.querySelector(".slider-container");
-          this.slider = document.querySelector(".slider");
-          this.cursor = document.querySelector(".custom-cursor");
-          this.slideWidth = 420; // 400px + 20px margin
+      const carousel = document.querySelector('.carousel');
+const cards = document.querySelectorAll('.carousel-card');
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
 
-          // Configuration des images
-          this.images = [
-            "https://www.santarosaforward.com/img/managed/Image/111/file.jpg",
-            "https://www.santarosaforward.com/img/managed/Image/111/file.jpg",
-            "https://www.santarosaforward.com/img/managed/Image/111/file.jpg",
-            "https://www.santarosaforward.com/img/managed/Image/111/file.jpg",
-            "https://www.santarosaforward.com/img/managed/Image/111/file.jpg",
-          ];
+let currentIndex = 0;
 
-          this.currentIndex = 0;
-          this.isAnimating = false;
-
-          this.init();
-        }
-
-        init() {
-          this.createSlides();
-          this.setupEventListeners();
-          this.positionSlides();
-          this.startAutoplay();
-        }
-
-        createSlides() {
-  const totalSlides = this.images.length * 3; // We still need to repeat the slides to create an infinite effect.
-  for (let i = 0; i < totalSlides; i++) {
-    const index = i % this.images.length;
-    
-    // Create the slide
-    const slide = document.createElement("div");
-    slide.className = "slide";
-    
-    // Create the card content
-    slide.innerHTML = `
-      <div class="card">
-  <div class="card-header">
-    <img src="assets/card-img1.png" alt="Card image" class="card-image">
-  </div>
-  <div class="card-body">
-    <h3>Card Title ${index + 1}</h3>
-    <p>This is some content for card ${index + 1}. You can add more information here.</p>
-  </div>
-</div>
-    `;
-    
-    this.slider.appendChild(slide);
-  }
+// Function to update carousel position
+function updateCarousel() {
+    const offset = -currentIndex * (cards[0].offsetWidth + 20); // 20 is for margins
+    carousel.style.transform = `translateX(${offset}px)`;
 }
 
+// Event listeners for navigation
+rightArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % cards.length; // Loop back to the first card
+    updateCarousel();
+});
 
-        positionSlides() {
-          const slides = this.slider.querySelectorAll(".slide");
-          const offset = (this.container.offsetWidth - this.slideWidth) / 2;
-          const baseTransform = -this.currentIndex * this.slideWidth + offset;
+leftArrow.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length; // Loop back to the last card
+    updateCarousel();
+});
 
-          this.slider.style.transform = `translateX(${baseTransform}px)`;
-
-          // Mettre à jour la slide active
-          slides.forEach((slide, index) => {
-            const normalizedIndex = this.normalizeIndex(index);
-            slide.classList.toggle(
-              "active",
-              normalizedIndex === this.currentIndex % this.images.length
-            );
-          });
-        }
-
-        normalizeIndex(index) {
-          return index % this.images.length;
-        }
-
-        moveSlides(direction) {
-          if (this.isAnimating) return;
-          this.isAnimating = true;
-
-          const slides = this.slider.querySelectorAll(".slide");
-          this.currentIndex += direction;
-
-          // Animer le mouvement
-          this.slider.style.transition = "transform 0.3s ease-out";
-          this.positionSlides();
-
-          // Réinitialiser la position si nécessaire
-          if (
-            this.currentIndex >= this.images.length * 2 ||
-            this.currentIndex <= this.images.length - 1
-          ) {
-            setTimeout(() => {
-              this.slider.style.transition = "none";
-              this.currentIndex =
-                this.currentIndex >= this.images.length * 2
-                  ? this.currentIndex - this.images.length
-                  : this.currentIndex + this.images.length;
-              this.positionSlides();
-            }, 300);
-          }
-
-          setTimeout(() => {
-            this.isAnimating = false;
-          }, 300);
-        }
-
-        setupEventListeners() {
-          // Mouvement du curseur
-          document.addEventListener("mousemove", (e) => {
-            this.cursor.style.left = `${e.clientX - 25}px`;
-            this.cursor.style.top = `${e.clientY - 25}px`;
-
-            const rect = this.container.getBoundingClientRect();
-            const isLeft = e.clientX < rect.left + rect.width / 2;
-
-            this.cursor.classList.toggle("left", isLeft);
-            this.cursor.classList.toggle("right", !isLeft);
-          });
-
-          // Interaction avec le slider
-          this.container.addEventListener("mouseenter", () => {
-            this.cursor.style.opacity = "1";
-            this.stopAutoplay();
-          });
-
-          this.container.addEventListener("mouseleave", () => {
-            this.cursor.style.opacity = "0";
-            this.startAutoplay();
-          });
-
-          this.container.addEventListener("click", (e) => {
-            const rect = this.container.getBoundingClientRect();
-            const isLeft = e.clientX < rect.left + rect.width / 2;
-
-            this.moveSlides(isLeft ? -1 : 1);
-
-            // Animation du curseur
-            this.cursor.classList.add("active");
-            setTimeout(() => this.cursor.classList.remove("active"), 300);
-          });
-
-          // Ajuster au redimensionnement
-          window.addEventListener("resize", () => this.positionSlides());
-        }
-
-        startAutoplay() {
-          this.stopAutoplay();
-          this.autoplayInterval = setInterval(() => {
-            this.moveSlides(1);
-          }, 3000);
-        }
-
-        stopAutoplay() {
-          if (this.autoplayInterval) {
-            clearInterval(this.autoplayInterval);
-          }
-        }
-      }
-
-      // Initialiser le slider quand le DOM est chargé
-      document.addEventListener("DOMContentLoaded", () => {
-        new Slider();
-      });
+// Initial setup
+updateCarousel();
     
     </script>
   </body>
