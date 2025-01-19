@@ -8,17 +8,35 @@
   </head>
   <body class="bgr-img">
     <div class="mainBox">
-      <img class="logo" src="assets/logo.png">
+      <img class="logo" src="assets/logo.png" />
       <h1 id="welcome-message">Welcome</h1>
-      <input type="text" id="profileName" name="profileName" placeholder="Enter your profile name " required>
+      <input
+        type="text"
+        id="profileName"
+        name="profileName"
+        placeholder="Enter your profile name "
+        required
+      />
       <div class="random" id="generateButton" onclick="generateRandomName()">
-        <svg id="random " width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.67 3.955l-2.825-2.202.665-.753 4.478 3.497-4.474 3.503-.665-.753 2.942-2.292h-4.162c-3.547.043-5.202 3.405-6.913 7.023 1.711 3.617 3.366 6.979 6.913 7.022h4.099l-2.883-2.247.665-.753 4.478 3.497-4.474 3.503-.665-.753 2.884-2.247h-4.11c-3.896-.048-5.784-3.369-7.461-6.858-1.687 3.51-3.592 6.842-7.539 6.858h-2.623v-1h2.621c3.6-.014 5.268-3.387 6.988-7.022-1.72-3.636-3.388-7.009-6.988-7.023h-2.621v-1h2.623c3.947.016 5.852 3.348 7.539 6.858 1.677-3.489 3.565-6.81 7.461-6.858h4.047z"/></svg>
+        <svg
+          id="random "
+          width="24"
+          height="24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+        >
+          <path
+            d="M21.67 3.955l-2.825-2.202.665-.753 4.478 3.497-4.474 3.503-.665-.753 2.942-2.292h-4.162c-3.547.043-5.202 3.405-6.913 7.023 1.711 3.617 3.366 6.979 6.913 7.022h4.099l-2.883-2.247.665-.753 4.478 3.497-4.474 3.503-.665-.753 2.884-2.247h-4.11c-3.896-.048-5.784-3.369-7.461-6.858-1.687 3.51-3.592 6.842-7.539 6.858h-2.623v-1h2.621c3.6-.014 5.268-3.387 6.988-7.022-1.72-3.636-3.388-7.009-6.988-7.023h-2.621v-1h2.623c3.947.016 5.852 3.348 7.539 6.858 1.677-3.489 3.565-6.81 7.461-6.858h4.047z"
+          />
+        </svg>
       </div>
       <textarea type="text" id="bio" placeholder="Enter your bio"></textarea>
       <!-- Profile Section -->
       <div class="profile">
         <h2 class="ques">What's bothering you?</h2>
         <select id="tag-suggestions" name="tags">
+          <option value=""></option>
           <option value="anxiety">Anxiety</option>
           <option value="depression">Depression</option>
           <option value="stress">Stress</option>
@@ -56,41 +74,100 @@
       </div>
     </div>
     <script>
-// List of random words (you can expand this list as needed)
-const firstWords = [
-      "Funky", "Crazy", "Mighty", "Sneaky", "Silent", "Majestic", "Dark", "Fluffy", "Cosmic", "Wicked",
-      "Lunar", "Electric", "Swift", "Bitter", "Lonely", "Bright", "Cunning", "Fearless", "Mysterious", "Whimsical",
-      "Dizzy", "Glorious", "Sparky", "Enchanted", "Thunder", "Shimmer", "Wild", "Stormy", "Radiant"
-    ];
+      // List of random words (you can expand this list as needed)
+      const firstWords = [
+        "Funky",
+        "Crazy",
+        "Mighty",
+        "Sneaky",
+        "Silent",
+        "Majestic",
+        "Dark",
+        "Fluffy",
+        "Cosmic",
+        "Wicked",
+        "Lunar",
+        "Electric",
+        "Swift",
+        "Bitter",
+        "Lonely",
+        "Bright",
+        "Cunning",
+        "Fearless",
+        "Mysterious",
+        "Whimsical",
+        "Dizzy",
+        "Glorious",
+        "Sparky",
+        "Enchanted",
+        "Thunder",
+        "Shimmer",
+        "Wild",
+        "Stormy",
+        "Radiant",
+      ];
 
-    const secondWords = [
-      "Lion", "Phoenix", "Dragon", "Waffle", "Pineapple", "Wizard", "Ninja", "Zebra", "Unicorn", "Monster",
-      "Tornado", "Wolf", "Cyclops", "Falcon", "Shark", "Spider", "Vampire", "Giraffe", "Penguin", "Knight",
-      "Raven", "Griffin", "Kangaroo", "Dragonfly", "Jaguar", "Lynx", "Cheetah", "Phoenix", "Beetle"
-    ];
+      const secondWords = [
+        "Lion",
+        "Phoenix",
+        "Dragon",
+        "Waffle",
+        "Pineapple",
+        "Wizard",
+        "Ninja",
+        "Zebra",
+        "Unicorn",
+        "Monster",
+        "Tornado",
+        "Wolf",
+        "Cyclops",
+        "Falcon",
+        "Shark",
+        "Spider",
+        "Vampire",
+        "Giraffe",
+        "Penguin",
+        "Knight",
+        "Raven",
+        "Griffin",
+        "Kangaroo",
+        "Dragonfly",
+        "Jaguar",
+        "Lynx",
+        "Cheetah",
+        "Phoenix",
+        "Beetle",
+      ];
 
-    // Function to generate a random name without space between words
-    function generateRandomName() {
-      // Pick random words from both arrays
-      const firstWord = firstWords[Math.floor(Math.random() * firstWords.length)];
-      const secondWord = secondWords[Math.floor(Math.random() * secondWords.length)];
+      // Function to generate a random name without space between words
+      function generateRandomName() {
+        // Pick random words from both arrays
+        const firstWord =
+          firstWords[Math.floor(Math.random() * firstWords.length)];
+        const secondWord =
+          secondWords[Math.floor(Math.random() * secondWords.length)];
 
-      // Combine them into a single name without spaces
-      const randomName = `${firstWord}${secondWord}`;
+        // Combine them into a single name without spaces
+        const randomName = `${firstWord}${secondWord}`;
 
-      // Debugging: log the generated name
-      console.log("Generated random name:", randomName);
+        // Debugging: log the generated name
+        console.log("Generated random name:", randomName);
 
-      // Fill the input field with the generated name
-      document.querySelector("#profileName").value = randomName;
+        // Fill the input field with the generated name
+        document.querySelector("#profileName").value = randomName;
 
-      // Debugging: log the input field value after setting it
-      console.log("Input field value set to:", document.getElementById("profileName").value);
-    }
+        // Debugging: log the input field value after setting it
+        console.log(
+          "Input field value set to:",
+          document.getElementById("profileName").value
+        );
+      }
 
-    // Attach the function to the button click event
-    document.querySelector(".random").addEventListener("click", generateRandomName);
-  </script>
+      // Attach the function to the button click event
+      document
+        .querySelector(".random")
+        .addEventListener("click", generateRandomName);
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
