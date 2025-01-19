@@ -8,14 +8,18 @@
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
   </head>
-  <body style="background-color:#EDE0D4">
+  <body style="background-image: url('assets/gifbgr.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;"
+>
   
     <!-- Header Section -->
 
-    <div class="header"></body>
+    <div class="header">
     
       <div class="header-buttons">
-        <button id="Profile" class="header-nav-button">User Profile</button>
+        <button id="Profile" class="header-nav-button">Your Profile</button>
       </div>
       <img src="assets/logo.png" alt="Logo" class="header-logo" />
       <div class="header-buttons">
@@ -24,37 +28,29 @@
     </div>
     <h2 id = "playerName"></h2>
     <!-- Main Section -->
-   
-      <div class="match">
-        <a  href="./public/index.html"><button id="match">Match</button></a>
-      </div>
-    <div class="carousel-wrapper">
-      <div class="carousel-container">
-          <div class="carousel">
-              <div class="carousel-card">
-                  <img src="assets/Character2.png" alt="Image 1">
-                  <p>Card 1</p>
-              </div>
-              <div class="carousel-card">
-                  <img src="assets/Character3.png" alt="Image 2">
-                  <p>Card 2</p>
-              </div>
-              <div class="carousel-card">
-                  <img src="assets/Character4.png" alt="Image 3">
-                  <p>Card 3</p>
-              </div>
-              <div class="carousel-card">
-                  <img src="assets/Character5.png" alt="Image 4">
-                  <p>Card 4</p>
-              </div>
+    <div class="carousel">
+      <div class="card-container">
+        <div class="card">
+          <div class="card-overlay"></div>
+          <div class="card-inner">
+            <h2 class="profile-name">Banana</h2>
+            <p class="bio">Just trying to survive high school. Between endless homework, exams, and all the pressure to do everything right, it feels like there’s no time to breathe. Some days I wonder if it’ll ever get easier. Guess I’m just hanging on for now.</p>
           </div>
-         
         </div>
-  </div>
-  <div class="carousel-controls">
-    <button class="carousel-arrow left-arrow">&lt;</button>
-    <button class="carousel-arrow right-arrow">&gt;</button>
-</div> 
+        <div class="card">
+          <div class="card-overlay"></div>
+          <div class="card-inner">YOUR<br>CONTENT<br>HERE</div>
+        </div>
+        <div class="card">
+          <div class="card-overlay"></div>
+          <div class="card-inner">YOUR<br>CONTENT<br>HERE</div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+
+
         <!-- <a id="match" href="./public/index.html"><button>Match</button></a> -->
 
     <!-- Sign Out Script DO NOT TOUCH VERY FRAGILE-->
@@ -96,33 +92,7 @@
       profileBtn.addEventListener("click", () => {
         window.location.href = "./public/profile.html";
       });
-      const carousel = document.querySelector('.carousel');
-const cards = document.querySelectorAll('.carousel-card');
-const leftArrow = document.querySelector('.left-arrow');
-const rightArrow = document.querySelector('.right-arrow');
-
-let currentIndex = 0;
-
-// Function to update carousel position
-function updateCarousel() {
-    const offset = -currentIndex * (cards[0].offsetWidth + 20); // 20 is for margins
-    carousel.style.transform = `translateX(${offset}px)`;
-}
-
-// Event listeners for navigation
-rightArrow.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % cards.length; // Loop back to the first card
-    updateCarousel();
-});
-
-leftArrow.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length; // Loop back to the last card
-    updateCarousel();
-});
-
-// Initial setup
-updateCarousel();
-    
+      
     </script>
   </body>
 </html>

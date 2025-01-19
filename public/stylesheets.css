@@ -338,8 +338,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom, #EDE0D4 10%, rgba(237, 224, 212, 0) 100%);
     position: fixed; /* Fixes the header to the top */
     top: 0;
     left: 0;
@@ -373,158 +372,55 @@ body {
     background-color: #7F5539;
     transform: scale(1.05);
   }
+/* From Uiverse.io by LilaRest */ 
 
-#match {
-  width:320px; 
-}
-.match {
+.card-container {
   display: flex;
   justify-content: center;
 }
 .card {
-  width: 320px;
-  height: 100%; /* Adjust this if you want the height of the card to be dynamic or fixed */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: #fff;
-  margin-bottom:20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(5, 5, 5, 0.4);
-  overflow: hidden; /* Prevents overflow of content */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.card-header {
+  --bg: #e8e8e8;
+  --contrast: #e2e0e0;
+  --grey: #93a1a1;
+  opacity: 0.8;
   position: relative;
-  height: 40%; /* Image takes up 30% of the card's height */
-  overflow: hidden; /* Ensures the image doesn't spill over */
+  padding: 9px;
+  margin: 20px;
+  background-color: var(--bg);
+  border-radius: 35px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
 
-.card-image {
-  width: 100%; /* Makes the image take up the full width of the card */
-  height: 100%; /* Makes the image take up 30% height of the card */
-  object-fit: cover; /* Ensures the image covers the area and maintains aspect ratio */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+.card:hover {
+  transform: scale(1.15); /* Enlarge the card */
+  opacity: 1;
+  box-shadow: rgba(50, 50, 93, 0.3) 0px 50px 100px -20px, rgba(0, 0, 0, 0.4) 0px 30px 60px -30px, rgba(10, 37, 64, 0.4) 0px -2px 6px 0px inset; /* Enhanced shadow on hover */
 }
 
-.card-body h3 {
-  position: absolute; /* Position the title on top of the image */
-  margin-bottom: 10px;
-  margin: 0;
-  color: black; /* Ensure text stands out on top of the image */
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.card-body {
-  flex-grow: 1; /* Ensures the body takes the remaining space */
-  padding: 20px;
-
-}
-
-.card-footer {
-  padding-top: 10px;
-}
-
-.card-footer .btn {
-  background-color: #007BFF;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.card-footer .btn:hover {
-  background-color: #0056b3;
-}
-.carousel-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #EDE0D4; /* Background scoped to wrapper */
-}
-
-.carousel-container {
-  width: 60%; /* Reduced width for taller cards */
-  overflow: hidden;
-  position: relative;
-}
-
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-card {
-  flex: 0 0 70%; /* Adjust width of each card */
-  box-sizing: border-box;
-  margin: 0 10px;
-  background-color: white;
-  color: white;
-  border-radius: 10px;
-  text-align: center;
-  overflow: hidden;
-  height: 400px; /* Set height for taller cards */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 250px;
-}
-
-.carousel-card img {
-  width: 100%;
-  height: 80%;
-  object-fit: cover; /* Ensure image fits well */
-  border-bottom: 2px solid white;
-}
-
-.carousel-card p {
-  margin: 10px 0;
-  font-size: 18px;
-}
-
-.carousel-arrow {
+.card-overlay {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 10px 15px;
-  cursor: pointer;
-  z-index: 1000;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-conic-gradient(var(--bg) 0.0000001%, var(--grey) 0.000104%) 60% 60%/600% 600%;
+  filter: opacity(10%) contrast(105%);
 }
 
-.left-arrow {
-  left: 10px;
+.card-inner {
+  overflow: hidden;
+  width: 320px;
+  height: 440px;
+  padding:20px;
+  background-color: var(--contrast);
+  border-radius: 30px;
+  /* Content style */
+  font-size: 18px;
+  text-align: justify;
+  color: #3f3f3f;
+  text-align: top;
 }
-
-.right-arrow {
-  right: 10px;
-}
-.carousel-controls {
+.match {
   display: flex;
-  justify-content: center;
-  gap: 10px; /* Add spacing between the buttons */
-}
-.carousel-arrow {
- 
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
+  align-items: center;
 
-.carousel-arrow:hover {
-
-  transform: scale(1.1);
 }

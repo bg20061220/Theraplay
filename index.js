@@ -97,6 +97,10 @@ io.on("connection", (socket) => {
   if (!currentDrawer) {
     startNewTurn(socket.id);
   }
+  socket.on("toggle-tts", (enabled) => {
+    ttsEnabled = enabled;
+    console.log("Text-to-speech " + (ttsEnabled ? "enabled" : "disabled"));
+  });
 
   socket.on("chat message", async (message) => {
     socket.broadcast.emit("chat message", message);
@@ -120,6 +124,26 @@ io.on("connection", (socket) => {
       io.emit("audio message", audioBuffer.toString("base64"));
     } catch (error) {
       console.error("Error generating speech:", error);
+      if (ttsEnabled) {
+        try {
+          const audioResponse = await voice.textToSpeechStream({
+            textInput: message,
+            voiceId: "21m00Tcm4TlvDq8ikWAM",
+            stability: 0.35,
+            similarityBoost: 0.8,
+          });
+
+          const chunks = [];
+          for await (const chunk of audioResponse) {
+            chunks.push(chunk);
+          }
+          const audioBuffer = Buffer.concat(chunks);
+
+          io.emit("audio message", audioBuffer.toString("base64"));
+        } catch (error) {
+          console.error("Error generating speech:", error);
+        }
+      }
     }
   });
 
