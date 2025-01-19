@@ -117,7 +117,7 @@
         text-align: center;
       }
       
-      .timer {
+      .timer  {
         font-family: 'Arial', sans-serif;
         font-size: 28px;
         font-weight: 300;
@@ -128,15 +128,28 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
       }
+      .turn {
+        font-family: 'Arial', sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        color: #5D4037;
+        background-color: rgba(215, 204, 200, 0.7);
+        padding: 5px 10px;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
       
       .theme-display {
-        position: absolute;
-        top: 50px;
-        right: 10px;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
+        font-family: 'Arial', sans-serif;
+        font-size: 28px;
+        font-weight: 300;
+        color: #5D4037;
+        background-color: rgba(215, 204, 200, 0.7);
+        padding: 10px 20px;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
       }
       
       .popup {
@@ -313,11 +326,13 @@
   </head>
   <body>
     <div class="app-container">
+      
       <div class="canvas-section">
         <canvas id="canvas"></canvas>
         <div class="timer-theme-container">
           <div id="timer" class="timer"></div>
           <div id="theme-display" class="theme-display"></div>
+          <div id="turn" class="turn"></div>
         </div>
         <div class="controls">
           <div class="control-group">
@@ -378,6 +393,7 @@
           <span class="close">&times;</span>
           <h2>Chat Summary</h2>
           <p id="summaryContent"></p>
+          <a href="../home.html"><button>Home</button></a>
         </div>
       </div>
       <div id="aiAssistModal" class="modal">
@@ -406,6 +422,13 @@
         const themeDisplay = document.getElementById("theme-display");
         themeDisplay.textContent = `Theme: ${theme}`;
       });
+      const ttsToggle = document.getElementById('switch');
+let ttsEnabled = false;
+ttsToggle.addEventListener('change', function() {
+  ttsEnabled = this.checked;
+  socket.emit('toggle-tts', ttsEnabled);
+  console.log('Text-to-speech ' + (ttsEnabled ? 'enabled' : 'disabled'));
+});
       
 function startNewTurn(userId) {
   if (currentDrawer) {
@@ -640,7 +663,9 @@ function startNewTurn(userId) {
 
       aiAssistNo.onclick = function () {
         aiAssistEnabled = false;
+        window.location.href = "../home.html";
         aiAssistModal.style.display = "none";
+
         // Add code here to disable AI assistance
 
         console.log("AI assistance disabled");
@@ -749,12 +774,15 @@ function startNewTurn(userId) {
 
       socket.on("turn-start", () => {
         isMyTurn = true;
+        
         canvas.isDrawingMode = true;
+        document.getElementById("turn").innerText = "Your Turn"
       });
 
       socket.on("turn-end", () => {
         isMyTurn = false;
         canvas.isDrawingMode = false;
+         document.getElementById("turn").innerText = "Wait for the other player to draw"
       });
       socket.on("timer", (timeLeft) => {
         timer.innerHTML = timeLeft + "s";
