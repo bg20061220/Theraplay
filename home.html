@@ -8,12 +8,18 @@
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
   </head>
-  <body>
+  <body style="background-image: url(assets/bgr-rpt.png);
+  background-size:600px;  /* To make the image cover the whole page */
+  background-position: center; /* To center the image */">
     <!-- Header Section -->
-    <div class="header">
-      <img src="assets/logo.png" alt="Logo" class="header-logo" />
+
+    <div class="header"></body>
+    
       <div class="header-buttons">
         <button id="Profile" class="header-nav-button">User Profile</button>
+      </div>
+      <img src="assets/logo.png" alt="Logo" class="header-logo" />
+      <div class="header-buttons">
         <button id="sign-out-btn" class="header-nav-button">Sign Out</button>
       </div>
     </div>
@@ -24,9 +30,7 @@
       <div class="slider-container">
         <div class="slider"></div>
       </div>
-    </div>
-  </body>
-</html>
+    
 
 
     <!-- Sign Out Script DO NOT TOUCH VERY FRAGILE-->
@@ -94,18 +98,31 @@
         }
 
         createSlides() {
-          // Créer trois fois le nombre d'images pour un défilement infini fluide
-          const totalSlides = this.images.length * 3;
-          for (let i = 0; i < totalSlides; i++) {
-            const index = i % this.images.length;
-            const slide = document.createElement("div");
-            slide.className = "slide";
-            slide.innerHTML = `<img src="${this.images[index]}" alt="Slide ${
-              index + 1
-            }">`;
-            this.slider.appendChild(slide);
-          }
-        }
+  const totalSlides = this.images.length * 3; // We still need to repeat the slides to create an infinite effect.
+  for (let i = 0; i < totalSlides; i++) {
+    const index = i % this.images.length;
+    
+    // Create the slide
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    
+    // Create the card content
+    slide.innerHTML = `
+      <div class="card">
+  <div class="card-header">
+    <img src="assets/card-img1.png" alt="Card image" class="card-image">
+  </div>
+  <div class="card-body">
+    <h3>Card Title ${index + 1}</h3>
+    <p>This is some content for card ${index + 1}. You can add more information here.</p>
+  </div>
+</div>
+    `;
+    
+    this.slider.appendChild(slide);
+  }
+}
+
 
         positionSlides() {
           const slides = this.slider.querySelectorAll(".slide");

@@ -56,7 +56,7 @@ h2 {
 }
 
 .logo {
-  width:250px;
+  width:300px;
 }
 .container {
     padding: 20px;
@@ -324,7 +324,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #f8f8f8;
+    background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed; /* Fixes the header to the top */
     top: 0;
@@ -334,18 +334,17 @@ body {
   }
   
   .header-logo {
-    height: 60px;
+    height: 80px;
     width: auto;
+
   }
   
   .header-buttons {
     display: flex;
-    gap: 130px; /* Space between buttons */
-    margin-left: auto; /* Push buttons to the right */
   }
   
   .header-nav-button {
-    background-color: #007bff; /* Primary button color */
+    background-color: #B08968; /* Primary button color */
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -357,12 +356,12 @@ body {
   }
   
   .header-nav-button:hover {
-    background-color: #0056b3;
+    background-color: #7F5539;
     transform: scale(1.05);
   }
   
   .header-nav-button:active {
-    background-color: #003f7f;
+    background-color: #7F5539;
   }
   
   .slider-container {
@@ -429,4 +428,63 @@ body {
 
 .custom-cursor.active {
     transform: scale(1.5);
+}
+.card {
+  width: 400px;
+  height: 100%; /* Adjust this if you want the height of the card to be dynamic or fixed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(5, 5, 5, 0.4);
+  overflow: hidden; /* Prevents overflow of content */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-header {
+  position: relative;
+  height: 40%; /* Image takes up 30% of the card's height */
+  overflow: hidden; /* Ensures the image doesn't spill over */
+}
+
+.card-image {
+  width: 100%; /* Makes the image take up the full width of the card */
+  height: 100%; /* Makes the image take up 30% height of the card */
+  object-fit: cover; /* Ensures the image covers the area and maintains aspect ratio */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body h3 {
+  position: absolute; /* Position the title on top of the image */
+  margin-bottom: 10px;
+  margin: 0;
+  color: black; /* Ensure text stands out on top of the image */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-body {
+  flex-grow: 1; /* Ensures the body takes the remaining space */
+  padding: 20px;
+  color: #555;
+}
+
+.card-footer {
+  padding-top: 10px;
+}
+
+.card-footer .btn {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-footer .btn:hover {
+  background-color: #0056b3;
 }
