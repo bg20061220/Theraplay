@@ -116,6 +116,15 @@ function addTag() {
   const tagDiv = document.createElement("div");
   tagDiv.classList.add("tag");
   tagDiv.textContent = `#${tagValue}`;
+  tagDiv.addEventListener("mouseover" , () => {
+    tagDiv.textContent  = "Delete" ; 
+  }) ; 
+  tagDiv.addEventListener("mouseout" , () =>{
+    tagDiv.textContent = `#${tagValue}` ; 
+  }) ; 
+  tagDiv.addEventListener("click" , () =>{
+     removeTag(tagValue,tagDiv);ß
+  }) ; 
 
   // Append the tag and update the Set
   tagList.appendChild(tagDiv);
