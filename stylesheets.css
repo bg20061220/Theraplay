@@ -268,15 +268,16 @@ body {
   }
   
   #add-tag-button {
-    width: 40px;
+    width: 35px;
     margin-top:0px;
     background-color: #4CAF50;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
+    margin-left: 5px;
   }
   
   #add-tag-button:hover {
@@ -312,7 +313,7 @@ body {
   }
 
   #find-match-button {
-    width:420px;
+    width:100%;
     background-color: #B08968;
     color: white;
     padding: 10px;
@@ -320,6 +321,7 @@ body {
     border-radius: 20px;
     cursor: pointer;
     font-size: 18px;
+    margin-top: 20px;
   }
   
   #find-match-button:hover {
@@ -419,7 +421,7 @@ body {
 .card-body {
   flex-grow: 1; /* Ensures the body takes the remaining space */
   padding: 20px;
-  color: #555;
+
 }
 
 .card-footer {
@@ -438,4 +440,91 @@ body {
 
 .card-footer .btn:hover {
   background-color: #0056b3;
+}
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #EDE0D4; /* Background scoped to wrapper */
+}
+
+.carousel-container {
+  width: 60%; /* Reduced width for taller cards */
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-card {
+  flex: 0 0 70%; /* Adjust width of each card */
+  box-sizing: border-box;
+  margin: 0 10px;
+  background-color: white;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  overflow: hidden;
+  height: 400px; /* Set height for taller cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover; /* Ensure image fits well */
+  border-bottom: 2px solid white;
+}
+
+.carousel-card p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Add spacing between the buttons */
+}
+.carousel-arrow {
+ 
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carousel-arrow:hover {
+
+  transform: scale(1.1);
 }
