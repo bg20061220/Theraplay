@@ -280,6 +280,11 @@ body {
     margin-left: 5px;
     text-align: center;
     vertical-align: top;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: normal;
   }
   
   #add-tag-button:hover {
@@ -478,4 +483,13 @@ body {
 .match-container {
   display: block;
   margin-top: 20px; /* Optional: adds spacing between the carousel and the button */
+}
+.card a {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Ensures the link inherits the parent text color */
+}
+.prompt {
+  margin-top: 20px;
+  color: white;
+  text-align: center;
 }
