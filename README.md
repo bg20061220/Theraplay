@@ -1,102 +1,142 @@
-TheraPlay
+# TheraPlay
 
-TheraPlay: An interactive web application that connects users facing similar challenges, enabling anonymous chat and collaborative doodling to foster support without fear of judgment.
+**TheraPlay** is an interactive web application that connects users facing similar challenges, enabling anonymous chat and collaborative doodling to foster support without fear of judgment.
 
-Project Description
+---
 
-TheraPlay is designed to provide a supportive platform for individuals facing similar struggles.
+## Table of Contents
 
-Features:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Future Features](#future-features)
+- [Installation and Setup](#installation-and-setup)
+- [Usage](#usage)
+- [Contributors](#contributors)
+- [Demo Video](#demo-video)
+- [License](#license)
 
-Profile Setup:
+---
 
-Users sign in and specify what challenges they are facing (e.g., loneliness, anger, grief, career issues).
+## Introduction
 
-User Matching:
+TheraPlay provides a supportive platform for individuals facing personal challenges by offering tools for anonymous connection and interaction. The application uses chat and collaborative doodling as mediums to foster understanding and mutual support, with optional AI assistance to provide additional insights.
 
-Matches users experiencing similar challenges, enabling them to connect anonymously.
+---
 
-Interactive Sessions:
+## Features
 
-Chat Options: Includes both voice chat and written chat functionalities.
+### Profile Setup
 
-Collaborative Canvas: Users can take turns drawing on a shared canvas to de-stress, leveraging painting as a therapeutic activity.
+- Users sign in and specify the challenges they are facing (e.g., loneliness, grief, career issues).
 
-AI Assistance:
+### User Matching
 
-Upon ending a chat session, users are offered optional AI assistance.
+- Matches users experiencing similar challenges for anonymous interactions.
 
-The AI analyzes conversations and provides a third perspective to help users gain new insights into their situation.
+### Interactive Sessions
 
-Technologies Used
+- **Chat Options**: Offers both voice and text chat functionalities.
+- **Collaborative Canvas**: Allows users to draw together on a shared canvas, leveraging art as a therapeutic outlet.
 
-HTML: For structuring the web application.
+### AI Assistance
 
-CSS: For styling and enhancing the user interface.
+- At the end of a session, users can opt to receive AI-generated insights, offering a neutral third perspective based on the session.
 
-JavaScript: For server-side logic and interactive functionalities.
+---
 
-Fabric.js: Enables the collaborative drawing canvas.
+## Technologies Used
 
-ElevenLabs API: Provides speech-to-text and text-to-speech functionalities.
+- **Frontend**:
+  - HTML, CSS for structure and styling.
+  - JavaScript for dynamic functionalities.
+- **Backend**:
+  - **Socket.io**: Enables real-time communication for chat.
+  - **Fabric.js**: Facilitates the collaborative drawing canvas.
+  - **Firebase Authentication**: Ensures secure user sign-ins.
+  - **ElevenLabs API**: Supports speech-to-text and text-to-speech features.
+  - **Perplexity AI**: Provides tailored insights post-session.
 
-Perplexity AI: Delivers tailored responses and insights to users post-session.
+---
 
-Firebase Authentication: Ensures secure and seamless user sign-ins.
+## Future Features
 
-Socket.io: Powers real-time chat functionality.
+- **Reveal Button**:
+  - Users can mutually agree to reveal their identities during chats.
+- **Hosting**:
+  - Plans to host the application to onboard real users (currently using dummy data).
 
-Future Features
+---
 
-Reveal Button:
+## Installation and Setup
 
-While chatting, users can mutually agree to reveal their identities to each other.
+### Clone the Repository
 
-Hosting:
+```bash
+git clone https://github.com/bg20061220/Theraplay
 
-Plans to host the application to onboard real users (currently using dummy data for demonstration).
+```
 
-How to Install and Run the Project
+### Instal Node.js
 
-Clone the Repository:
+```bash
+https://nodejs.org/
+```
 
-Clone this repo
+### Install Dependencies
 
-Install Node.js:
+In your terminal run this
 
-Download Node.js
-
-Install Dependencies:
-
+```bash
 npm install
+```
 
-Run the Server:
+### Run the server
 
+In your terminal run this
+
+```bash
 node index.js
+```
 
-If you see "Server running on port", the server is successfully running.
+---
 
-Open the Frontend:
+If you see "Server running on port" in your server, everything is good.
 
-Right-click on Main.html and select "Open in Server" (requires a local server setup like Live Server).
+---
 
-Testing the Chat Functionality:
+### Right-click on Main.html and select "Open in Server" (requires a local server setup like Live Server).
+
+### Testing the Chat Functinality :
 
 Open the application in two browser windows or tabs.
 
+###
+
 Follow the instructions provided within the app to test all features.
 
-We hope TheraPlay makes a meaningful difference in the lives of its users. Thank you for your interest in our project.
-Video Demo for TheraPlay (Doodle it Out):
+---
 
-Collabrators
+## Collabrators
 
-Bhavya Goel - https://github.com/bg20061220 | https://www.linkedin.com/in/bhavya-goel-2616b3285/
+## Bhavya Goel
 
-Jasmine Kaur - https://github.com/jaismin-ks | https://www.linkedin.com/in/jaismin-kaur-673950305/
+#### Linkedin : https://www.linkedin.com/in/bhavya-goel-2616b3285/
 
-Surya Uday Singh- https://github.com/Surya-Uday-Singh | https://www.linkedin.com/in/surya-uday-singh-a10193240/
+#### Githuub : https://github.com/bg20061220
 
-Check out the demo video for the project here :
+## Jasmine Kaur
+
+#### Linkedin : https://www.linkedin.com/in/jaismin-kaur-673950305/
+
+#### Github : https://github.com/jaismin-ks
+
+#Surya Uday Singh
+
+#### Linkedin : https://www.linkedin.com/in/surya-uday-singh-a10193240/
+
+#### Github : https://github.com/Surya-Uday-Singh
+
+## Demo Video
 
 https://github.com/user-attachments/assets/a2af54f5-309c-4480-9bf7-7a2bcd665dca
