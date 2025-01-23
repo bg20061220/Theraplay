@@ -125,13 +125,13 @@ Follow the instructions provided within the app to test all features.
 
 #### Githuub : https://github.com/bg20061220
 
-## Jasmine Kaur
+## Jaismin Kaur
 
 #### Linkedin : https://www.linkedin.com/in/jaismin-kaur-673950305/
 
 #### Github : https://github.com/jaismin-ks
 
-#Surya Uday Singh
+## Surya Uday Singh
 
 #### Linkedin : https://www.linkedin.com/in/surya-uday-singh-a10193240/
 
